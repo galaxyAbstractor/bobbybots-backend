@@ -1,10 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using bobbybots_backend.entity;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace bobbybots_backend
 {
-    class BotContext : DbContext {
+    class BotContext : DbContext
+    {
         public DbSet<Robot> Bots { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -17,7 +20,9 @@ namespace bobbybots_backend
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string json = System.IO.File.ReadAllText("data/bots.json");
+
+            List<Robot> robots = JsonConvert.DeserializeObject<List<Robot>>(json);
         }
     }
 }
