@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace bobbybots_backend.Migrations
 {
@@ -21,7 +22,7 @@ namespace bobbybots_backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -31,9 +32,9 @@ namespace bobbybots_backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Category_Bots_RobotId",
+                        name: "FK_Categories_Bots_RobotId",
                         column: x => x.RobotId,
                         principalTable: "Bots",
                         principalColumn: "Id",
@@ -41,15 +42,15 @@ namespace bobbybots_backend.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Category_RobotId",
-                table: "Category",
+                name: "IX_Categories_RobotId",
+                table: "Categories",
                 column: "RobotId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Bots");

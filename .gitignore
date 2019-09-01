@@ -2,3 +2,4 @@
 obj
 bin
 data/bots.json
+*.db
