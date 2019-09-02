@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bobbybots_backend;
+using bobbybots_backend.database;
 
 namespace bobbybots_backend.Migrations
 {
